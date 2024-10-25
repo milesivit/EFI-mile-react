@@ -1,29 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import MyButton from './components/MyButton'
+import CreateUser from './components/Users/createUser'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserContainer from './components/Users/UsersContainer'
+import { Menubar } from 'primereact/menubar';
+import LoginUser from './components/Users/loginUser'
+
 
 function App() {
   const [count, setCount] = useState(0)
-  console.log('contador')
+
+  const items = [
+    { label: 'Usuario', icon: 'pi pi-spin pi-cog', url: '/usuarios' },
+    { label: 'Nuevo Usuario', icon: 'pi pi-users', url: '/nuevo-usuario' },
+    { label: 'Home', icon: 'pi pi-home', url: '/' },
+    { label: 'inicio-sesion', icon: 'pi pi-home', url: '/inicio-sesion' }
+  ]
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+    <BrowserRouter>
+      <Menubar model={items} />
+      <Routes>
+        <Route path='/' element={<h2>Bienvenido a la página principal</h2>} /> {/* Ruta para el home */}
+        <Route path='/usuarios' element={<UserContainer />} />
+        <Route path='/nuevo-usuario' element={<CreateUser />} />
+        <Route path='/inicio-sesion' element={<LoginUser />} />
+      </Routes>
       <h1>Vite + React</h1>
-      <UserContainer/>
-      <MyButton count={count} setCount={setCount}/>
 
-    </>
+      <MyButton count={count} setCount={setCount} />
+    </BrowserRouter>
   )
 }
 

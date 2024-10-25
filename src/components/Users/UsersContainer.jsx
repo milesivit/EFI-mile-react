@@ -1,6 +1,5 @@
-import { useState, useEffect, Fragment } from "react";
-import { ProgressSpinner } from 'primereact/progressspinner';
-        
+import { useState, useEffect } from "react";
+import UsersView from "./UsersView";
 
 const UserContainer = () => {
     const [data, setData] = useState([]),
@@ -28,15 +27,7 @@ const UserContainer = () => {
     }, [])
 
 return(
-    <Fragment>
-        {loadingData ? 
-        <ProgressSpinner/> 
-        :
-            data.map((user) =>(
-                <h2 key={user.id}>{user.name}</h2>
-            ))
-        }
-    </Fragment>
+    <UsersView loadingData={loadingData} data={data} />
 )     
 }
 
