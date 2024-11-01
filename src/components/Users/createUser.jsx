@@ -73,7 +73,7 @@ const CreateUser = () => {
                             onClick={() => RegisterUser(values)} 
                             disabled={values.username === '' || values.password === '' || !isValid}
                         >
-                            BimBaraBoomMrWorldWide
+                            Aceptar
                         </button>
                     </form>
                 </>
