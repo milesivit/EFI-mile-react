@@ -19,7 +19,7 @@ const LoginUser = () => {
 
         if(!response.ok){
             console.log('error de la solicitud')
-        }
+        }   
 
         const data = await response.json()
 
@@ -30,12 +30,12 @@ const LoginUser = () => {
 
     const ValidationSchema = Yup.object().shape({
         password: Yup.string()
-            .required('Pelotudito')
-            .min(4, 'Idiota'),
+            .required('Este es un campo requerido.')
+            .min(4, 'Minimo 4 caracteres.'),
         username: Yup.string()
-            .min(4, 'Infradotado')
-            .max(255, 'Retrasado')
-            .required('Inutil')
+            .min(4, 'Minimo 4 caracteres.')
+            .max(25, 'Máximo 25 caracteres.')
+            .required('Este es un campo requerido.')
     });
     
     return (

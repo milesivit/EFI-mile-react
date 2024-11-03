@@ -9,7 +9,6 @@ import LoginUser from './components/Users/loginUser'
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   const items = [
     { label: 'Usuario', icon: 'pi pi-spin pi-cog', url: '/usuarios' },
@@ -27,9 +26,9 @@ function App() {
         <Route path='/nuevo-usuario' element={<CreateUser />} />
         <Route path='/inicio-sesion' element={<LoginUser />} />
       </Routes>
-      <h1>Vite + React</h1>
+      <h2>EFI-Sivit</h2>
 
-      <MyButton count={count} setCount={setCount} />
+    
     </BrowserRouter>
   )
 }
