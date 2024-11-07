@@ -4,12 +4,14 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from "primereact/button";
 import { Toast } from 'primereact/toast';
+import { useNavigate } from "react-router-dom";
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
         
 
 const UsersView = ({loadingData, data}) => {
 
-    const toast = useRef(null)
+    const toast = useRef(null);
+    const navigate = useNavigate();
 
     const bodyIsAdmin = (rowData) => {
         return(
@@ -20,7 +22,7 @@ const UsersView = ({loadingData, data}) => {
     const bodyActions = (rowData) =>{
         return(
             <div>
-                <Button label='Modificar' icon='pi pi-pencil' className="custom-button-modificar" />
+                <Button label="Modificar" icon="pi pi-pencil" className="custom-button-modificar" onClick={() => navigate(`/modificar-usuario/${rowData.id}`)} />
                 <Button label='Eliminar' icon='pi pi-trash' className="custom-button-eliminar" onClick={() => deleteUser()} />
             </div>
         )
@@ -52,7 +54,11 @@ const UsersView = ({loadingData, data}) => {
     return(
         <Fragment>
             <h1>Usuarios</h1>
-            <Button label="Agregar nuevo usuario" con='pi pi-user-plus'/>
+            <Button
+        label="Agregar nuevo usuario"
+        icon="pi pi-user-plus"
+        onClick={() => navigate("/nuevo-usuario")} 
+      />
         {loadingData ? 
         <ProgressSpinner/> 
         :
