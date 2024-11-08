@@ -60,7 +60,6 @@ function App() {
         <Route path='/equipos' element={<EquipoContainer/>} />
         <Route path='/nueva-marca' element={<CreateMarca/>} />
         <Route path='/clientes' element={<ClienteContainer/>} />
-        <Route path="/modificar-marca/:id" element={<EditMarca />} />
         <Route path="/proveedores" element={<ProveedorContainer />} />
         <Route path="/inventario" element={<InventarioContainer />} />
       </Routes> 
